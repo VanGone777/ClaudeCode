@@ -6,7 +6,7 @@ import { ArrowUpRight } from "@/components/ui/Icons";
 function FooterColumn({ title, items }: { title: string; items: ReadonlyArray<{ label: string; href: string }> }) {
   return (
     <div>
-      <p className="font-sans text-eyebrow font-semibold uppercase text-ivory/50">{title}</p>
+      <p className="font-sans text-eyebrow font-semibold uppercase text-ivory/65">{title}</p>
       <ul className="mt-5 space-y-3">
         {items.map((item) => (
           <li key={item.href + item.label}>
@@ -86,7 +86,7 @@ export function Footer() {
           <FooterColumn title="Unternehmen" items={footerNav.unternehmen} />
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-moss-line pt-8 font-sans text-caption text-ivory/50 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-moss-line pt-8 font-sans text-caption text-ivory/65 md:flex-row md:items-center md:justify-between">
           <p>
             © {year} {site.legalName}. Alle Rechte vorbehalten.
           </p>

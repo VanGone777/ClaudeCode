@@ -8,7 +8,7 @@ import { marketAirdna, marketVienna2025 } from "@/content/home";
 
 function SourceLink({ source }: { source: { label: string; href: string; date?: string } }) {
   return (
-    <p className="font-sans text-caption text-ivory/55">
+    <p className="font-sans text-caption text-ivory/70">
       Quelle:{" "}
       <a href={source.href} target="_blank" rel="noopener noreferrer" className="link-underline inline-flex items-center gap-1 hover:text-ivory">
         {source.label}
@@ -34,20 +34,20 @@ export function MarketStats() {
 
         <div className="mt-14 grid gap-14 lg:mt-20 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
           <Reveal>
-            <p className="font-sans text-eyebrow font-semibold uppercase text-ivory/50">Wien 2025</p>
+            <p className="font-sans text-eyebrow font-semibold uppercase text-ivory/65">Wien 2025</p>
             <div className="mt-5 grid gap-x-8 sm:grid-cols-3 lg:grid-cols-1">
               {marketVienna2025.stats.map((s) => (
                 <Stat key={s.label} value={s.value} label={s.label} note={s.note} tone="dark" />
               ))}
             </div>
-            <p className="mt-5 font-sans text-caption text-ivory/55">{marketVienna2025.caveat}</p>
+            <p className="mt-5 font-sans text-caption text-ivory/70">{marketVienna2025.caveat}</p>
             <div className="mt-3">
               <SourceLink source={marketVienna2025.source} />
             </div>
           </Reveal>
 
           <Reveal delay={120}>
-            <p className="font-sans text-eyebrow font-semibold uppercase text-ivory/50">Kurzzeitvermietung Wien, September 2026</p>
+            <p className="font-sans text-eyebrow font-semibold uppercase text-ivory/65">Kurzzeitvermietung Wien, September 2026</p>
             <div className="mt-5 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
               {marketAirdna.stats.map((s) => (
                 <Stat key={s.label} value={s.value} label={s.label} tone="dark" size="sm" />

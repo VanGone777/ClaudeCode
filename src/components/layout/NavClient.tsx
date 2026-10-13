@@ -93,7 +93,7 @@ export function NavClient({ items, cta }: Props) {
             hrefLang={isEnglish ? "de" : "en"}
             lang={isEnglish ? "de" : "en"}
             className="font-sans text-eyebrow font-semibold uppercase text-stone transition-colors hover:text-ink"
-            aria-label={isEnglish ? "Deutsche Version" : "English version"}
+            aria-label={isEnglish ? "DE – Deutsche Version" : "EN – English version"}
           >
             {isEnglish ? "DE" : "EN"}
           </Link>
