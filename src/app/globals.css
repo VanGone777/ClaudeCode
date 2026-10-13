@@ -281,7 +281,7 @@
 
 /* Hero entrance (CSS only, no JS dependency) */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0.001; transform: translateY(10px); }
   to { opacity: 1; transform: none; }
 }
 @keyframes scale-settle {
@@ -289,8 +289,8 @@
   to { transform: none; }
 }
 .anim-fade-up {
-  animation: fade-up 900ms var(--ease-out-soft) both;
-  animation-delay: var(--delay, 0ms);
+  animation: fade-up 600ms var(--ease-out-soft) both;
+  animation-delay: calc(var(--delay, 0ms) / 2);
 }
 .anim-settle {
   animation: scale-settle 1600ms var(--ease-out-soft) both;

@@ -29,19 +29,19 @@ export function ReportingSection() {
           </Reveal>
           <Reveal delay={100}>
             <p className="font-sans text-eyebrow font-semibold uppercase text-stone">Was die monatliche Abrechnung enthält</p>
-            <dl className="mt-6 border-t border-line">
+            <ol className="mt-6 border-t border-line">
               {contents.map((item, index) => (
-                <div key={item.term} className="grid gap-2 border-b border-line py-6 sm:grid-cols-[3rem_1fr] sm:gap-6">
+                <li key={item.term} className="grid gap-2 border-b border-line py-6 sm:grid-cols-[3rem_1fr] sm:gap-6">
                   <span aria-hidden="true" className="font-serif text-base text-stone">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <dt className="font-serif text-subtitle text-ink">{item.term}</dt>
-                    <dd className="mt-2 max-w-xl text-small text-ink-soft">{item.text}</dd>
+                    <h3 className="font-serif text-subtitle text-ink">{item.term}</h3>
+                    <p className="mt-2 max-w-xl text-small text-ink-soft">{item.text}</p>
                   </div>
-                </div>
+                </li>
               ))}
-            </dl>
+            </ol>
             <p className="mt-8 max-w-xl text-small text-stone">
               Welche Positionen im Einzelnen enthalten sind und in welchem Rhythmus abgerechnet wird, legen wir vor Beginn der Zusammenarbeit
               schriftlich fest.

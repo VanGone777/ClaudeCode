@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Goldnest Website
 
-## Getting Started
+Website der Goldnest GmbH, Wien: professionelle Apartment- und Kurzzeitvermietungsverwaltung.
+Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4. Keine weiteren UI-Abhängigkeiten.
 
-First, run the development server:
+## Entwicklung
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # Produktionsbuild, alle Seiten statisch vorgerendert
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Struktur
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Pfad | Inhalt |
+|---|---|
+| `src/app` | Routen: Startseite, Landingpage, Hub, Leistungen, Ratgeber, Kontakt, Über uns, FAQ, Impressum, Datenschutz, `/en` |
+| `src/components/ui` | Basiskomponenten (Button, Accordion, Figure, Reveal, Blocks …) |
+| `src/components/sections` | Seitenabschnitte (Hero, Leistungen, Rechtliche Orientierung, Marktzahlen, Rechner, FAQ …) |
+| `src/content` | Alle Texte getrennt von der Darstellung: `site.ts`, `faq.ts`, `home.ts`, `guides/*`, `services/*`, `images.ts` |
+| `src/lib` | SEO-Metadaten, JSON-LD (Organization, Service, Breadcrumb, FAQ, Article), Validierung des Kontaktformulars |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Designsystem: Farben, Typografie (Fraunces und Manrope, selbst gehostet über `next/font`) und Abstände stehen als Tokens in `src/app/globals.css`.
 
-## Learn More
+## SEO
 
-To learn more about Next.js, take a look at the following resources:
+Canonical, OpenGraph, Twitter Cards, Sitemap (`/sitemap.xml`), `robots.txt`, FAQ-, Breadcrumb-, Article-, Service- und Organization-Schema.
+Die Produktionsdomain steht in `src/content/site.ts` (`site.url`) und muss vor dem Go-live bestätigt werden.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Vor dem Go-live zu verifizieren
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Alle offenen Punkte sind im Code mit `VERIFY` markiert (`grep -rn VERIFY src`). Die wichtigsten:
 
-## Deploy on Vercel
+1. **Unternehmensdaten** in `src/content/site.ts`: Domain, Anschrift, Telefon, Firmenbuchnummer, UID, Geschäftsführung, Social-Profile. Impressum und Datenschutz verwenden diese Werte.
+2. **Portfolio-Angabe** „50+ betreute Apartments“: erst nach interner Bestätigung `site.portfolioClaim.verified = true` setzen. Bis dahin erscheint eine neutrale Formulierung.
+3. **Fotografie**: Alle Bilder sind gestaltete Platzhalter mit Motivbeschreibung. Echte Fotos in `public/images` ablegen und `src` in `src/content/images.ts` setzen.
+4. **Fallstudien und Eigentümerstimmen** (`src/content/home.ts`): bewusst Platzhalter, keine erfundenen Ergebnisse. Nur mit verifizierten Daten und schriftlicher Zustimmung befüllen.
+5. **Rechtsinhalte**: Jeder Ratgeber zeigt „Fachliche Prüfung ausstehend“. Nach Prüfung durch Rechts- und Steuerberatung das Feld `reviewed` pflegen. Quellenlinks und Stand vor Veröffentlichung erneut prüfen. Offen laut Recherche: Frist der Ortstaxe-Jahreserklärung, Aufbewahrungsfrist des Gästeverzeichnisses, österreichische Umsetzung der EU-Verordnung 2024/1028, Bearbeitungsdauer der Ausnahmebewilligung (bewusst nicht genannt).
+6. **Kontaktformular**: Die Server Action validiert und protokolliert nur. Versand über E-Mail-Dienst in `src/lib/inquiry.ts` anbinden (`INQUIRY_TO`, `INQUIRY_FROM`, `RESEND_API_KEY`, siehe `.env.example`).
+7. **Datenschutzerklärung**: Hosting-Anbieter, Speicherdauer, E-Mail-Dienst ergänzen. Aussage „keine Analyse- oder Marketing-Cookies“ aktualisieren, falls Tracking ergänzt wird.
+8. **Keine Preise, Provisionen oder Garantien** von Goldnest sind hinterlegt. Der Rechner nutzt ausschließlich Eingaben der Besucher und Beispielwerte.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Faktenbasis
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Marktzahlen (Eurostat, WienTourismus, AirDNA) und Rechtsaussagen stammen aus der Marktanalyse vom 10. Oktober 2026 und sind als Orientierung gekennzeichnet. Marktdaten sind keine Ertragsprognose für eine einzelne Immobilie.

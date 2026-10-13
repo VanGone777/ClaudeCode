@@ -80,19 +80,19 @@ export default async function ServicePage({ params }: PageProps<"/leistungen/[sl
                 )}
               </Reveal>
               <Reveal delay={100}>
-                <dl className="border-t border-line">
+                <ol className="border-t border-line">
                   {service.includes.map((item, index) => (
-                    <div key={item.title} className="grid gap-2 border-b border-line py-6 sm:grid-cols-[3rem_1fr] sm:gap-6">
+                    <li key={item.title} className="grid gap-2 border-b border-line py-6 sm:grid-cols-[3rem_1fr] sm:gap-6">
                       <span aria-hidden="true" className="font-serif text-base text-stone">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <div>
-                        <dt className="font-serif text-subtitle text-ink">{item.title}</dt>
-                        <dd className="mt-2 max-w-xl text-small text-ink-soft">{item.text}</dd>
+                        <h3 className="font-serif text-subtitle text-ink">{item.title}</h3>
+                        <p className="mt-2 max-w-xl text-small text-ink-soft">{item.text}</p>
                       </div>
-                    </div>
+                    </li>
                   ))}
-                </dl>
+                </ol>
               </Reveal>
             </div>
           </Container>
