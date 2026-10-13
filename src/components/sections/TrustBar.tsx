@@ -1,6 +1,6 @@
 import { site } from "@/content/site";
 
-const items = ["Wien", "Persönliche Betreuung", "Professionelle Gästekommunikation", "Transparente Abrechnung", "Kurzzeit- und mittelfristige Vermietung"];
+const items = ["Wien", "Apartments bis Hotels", "Persönliche Betreuung", "Professionelle Gästekommunikation", "Transparente Abrechnung", "Kurzzeit- und mittelfristige Vermietung"];
 
 export function TrustBar() {
   // VERIFY: the portfolio figure is only shown once site.portfolioClaim.verified is true.

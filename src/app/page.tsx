@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { IntroStatement } from "@/components/sections/IntroStatement";
+import { ObjectSegments } from "@/components/sections/ObjectSegments";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
 import { LegalSection } from "@/components/sections/LegalSection";
 import { NinetyDaysSection } from "@/components/sections/NinetyDaysSection";
@@ -21,10 +22,10 @@ import { buildMetadata } from "@/lib/seo";
 import { serviceSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Airbnb Verwaltung Wien | Premium Apartment Management – Goldnest",
+  title: "Airbnb Verwaltung Wien | Apartments, Zinshäuser, Hotels – Goldnest",
   absoluteTitle: true,
   description:
-    "Goldnest übernimmt die Airbnb Verwaltung in Wien: rechtlich geprüft, wirtschaftlich transparent, persönlich betreut. Von der Einschätzung bis zum laufenden Betrieb Ihres Apartments.",
+    "Goldnest übernimmt die Verwaltung von Apartments, ganzen Zinshäusern, Pensionen und Hotels in Wien: rechtlich geprüft, wirtschaftlich transparent, persönlich betreut.",
   path: "/",
 });
 
@@ -43,6 +44,7 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
       <IntroStatement />
+      <ObjectSegments tone="ivory-deep" />
       <ServiceGrid />
       <LegalSection />
       <NinetyDaysSection />

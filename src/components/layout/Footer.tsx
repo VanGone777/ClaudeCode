@@ -35,7 +35,7 @@ export function Footer() {
           <div className="max-w-sm">
             <Logo tone="dark" />
             <p className="mt-6 text-small text-ivory/70">
-              Professionelle Apartment- und Kurzzeitvermietungsverwaltung in Wien. Rechtlich durchdacht, wirtschaftlich transparent, persönlich betreut.
+              Professionelle Verwaltung von Apartments, Zinshäusern, Pensionen und Hotels in Wien. Rechtlich durchdacht, wirtschaftlich transparent, persönlich betreut.
             </p>
             <address className="mt-6 font-sans text-small not-italic text-ivory/70">
               {site.legalName}

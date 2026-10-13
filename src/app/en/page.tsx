@@ -15,7 +15,7 @@ import { buildMetadata } from "@/lib/seo";
 
 const PATH = "/en";
 const DESCRIPTION =
-  "Goldnest manages Airbnb and short-term rental apartments in Vienna for international owners: legal assessment first, then listing, pricing, guest communication, cleaning and transparent owner reporting.";
+  "Goldnest manages apartments, whole apartment buildings, guesthouses and hotels in Vienna for international owners and investors: legal assessment first, then pricing, guest communication, operations and transparent reporting.";
 
 export const metadata: Metadata = buildMetadata({
   title: "Airbnb Property Management Vienna – Goldnest",
@@ -78,6 +78,14 @@ const rulesEn: Array<{ title: string; text: string }> = [
 
 const audienceEn: Array<{ title: string; text: string }> = [
   {
+    title: "Owners of whole buildings",
+    text: "You own or are buying a Viennese apartment building. For a building, the assessment covers more than one flat: the share of units used for short-term accommodation, the number of tourist beds in the building, zoning and existing tenancies. Which units can be used how must be assessed case by case.",
+  },
+  {
+    title: "Guesthouses and hotels",
+    text: "You own or operate a guesthouse or hotel and want to professionalise areas such as pricing, distribution, guest communication, housekeeping organisation and reporting. The scope is agreed in writing before we start.",
+  },
+  {
     title: "International owners",
     text: "You own an apartment in Vienna but live abroad and need a local partner who handles guests, cleaning, maintenance and the Viennese rules, and who reports to you in a way you can follow.",
   },
@@ -112,8 +120,8 @@ export default function Page() {
 
       <PageHero
         eyebrow="Goldnest · Vienna"
-        title="Airbnb property management in Vienna. Professional, personal, fully managed."
-        lead="Goldnest is a Vienna-based management company for apartments and short-term rentals. We first assess which rental strategy is legally possible and economically sensible for your property, and then take over its professional operation."
+        title="Airbnb property management in Vienna for apartments, apartment buildings, guesthouses and hotels."
+        lead="Goldnest is a Vienna-based management company for apartments, whole apartment buildings (Zinshäuser), guesthouses and hotels. We first assess which rental or operating model is legally possible and economically sensible for your property, and then take over its professional operation."
         image="heroLiving"
         imageAspect="4/5"
       >

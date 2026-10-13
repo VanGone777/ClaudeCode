@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { guides } from "@/content/guides";
+import { objectDetails } from "@/content/objects";
 import { serviceDetails } from "@/content/services/index";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/", priority: 1, changeFrequency: "weekly" },
     { path: "/airbnb-verwaltung-wien", priority: 0.9, changeFrequency: "monthly" },
     { path: "/leistungen", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/objekte", priority: 0.9, changeFrequency: "monthly" },
     { path: "/kurzzeitvermietung-wien", priority: 0.9, changeFrequency: "monthly" },
     { path: "/ratgeber", priority: 0.8, changeFrequency: "weekly" },
     { path: "/ueber-uns", priority: 0.6, changeFrequency: "yearly" },
@@ -28,6 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.7,
+    })),
+    ...objectDetails.map((o) => ({
+      url: absoluteUrl(`/objekte/${o.slug}`),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
     })),
     ...guides.map((g) => ({
       url: absoluteUrl(`/ratgeber/${g.slug}`),

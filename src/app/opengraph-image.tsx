@@ -27,7 +27,7 @@ export default function Image() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
           <div style={{ fontSize: 76, lineHeight: 1.05, letterSpacing: -1, maxWidth: 980 }}>
-            Airbnb Verwaltung in Wien. Professionell, persönlich und vollständig betreut.
+            Apartments, Zinshäuser, Pensionen und Hotels in Wien. Professionell, persönlich, vollständig betreut.
           </div>
           <div style={{ display: "flex", gap: 36, fontSize: 24, color: "#7f776a", fontFamily: "Helvetica, Arial, sans-serif" }}>
             <span>Rechtlich durchdacht</span>

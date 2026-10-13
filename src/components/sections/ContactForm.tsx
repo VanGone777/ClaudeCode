@@ -7,18 +7,19 @@ import { submitInquiry, type InquiryState } from "@/app/kontakt/actions";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ArrowRight } from "@/components/ui/Icons";
-import { currentUseOptions, interestOptions, MESSAGE_MAX_LENGTH } from "@/lib/inquiry";
+import { currentUseOptions, interestOptions, objectTypeOptions, MESSAGE_MAX_LENGTH } from "@/lib/inquiry";
 import { cn } from "@/lib/utils";
 
 const initialState: InquiryState = { status: "idle" };
 
 /** Field order – used to focus the first invalid field after a failed submit. */
-const FIELD_ORDER = ["name", "email", "phone", "propertyAddress", "livingArea", "rooms", "currentUse", "interests", "message", "privacy"] as const;
+const FIELD_ORDER = ["name", "email", "phone", "objectType", "propertyAddress", "livingArea", "rooms", "currentUse", "interests", "message", "privacy"] as const;
 
 type Values = {
   name: string;
   email: string;
   phone: string;
+  objectType: string;
   propertyAddress: string;
   livingArea: string;
   rooms: string;
@@ -32,6 +33,7 @@ const emptyValues: Values = {
   name: "",
   email: "",
   phone: "",
+  objectType: "",
   propertyAddress: "",
   livingArea: "",
   rooms: "",
@@ -217,9 +219,31 @@ export function ContactForm() {
         </div>
       </fieldset>
 
+      {/* Art der Immobilie */}
+      <fieldset data-field="objectType" role="radiogroup" aria-required="true" className="border-0 p-0" aria-describedby={describedBy("objectType")} aria-invalid={errors.objectType ? true : undefined}>
+        <legend className={cn(labelClass, "mb-2")}>Art der Immobilie</legend>
+        <div className="divide-y divide-line border-y border-line">
+          {objectTypeOptions.map((option) => (
+            <label key={option.value} htmlFor={id(`objectType-${option.value}`)} className={choiceClass}>
+              <input
+                id={id(`objectType-${option.value}`)}
+                type="radio"
+                name="objectType"
+                value={option.value}
+                checked={values.objectType === option.value}
+                onChange={set("objectType")}
+                className={cn(controlClass, "rounded-full")}
+              />
+              {option.label}
+            </label>
+          ))}
+        </div>
+        <FieldError id={id("objectType-error")} message={errors.objectType} />
+      </fieldset>
+
       {/* Immobilie */}
       <fieldset className="grid gap-8 border-0 p-0 sm:grid-cols-2 sm:gap-x-10">
-        <legend className="mb-8 w-full border-b border-line pb-3 font-serif text-title text-ink">Ihre Immobilie</legend>
+        <legend className="mb-8 w-full border-b border-line pb-3 font-serif text-title text-ink">Adresse und Größe</legend>
 
         <div data-field="propertyAddress" className="sm:col-span-2">
           <label htmlFor={id("propertyAddress")} className={labelClass}>
@@ -243,7 +267,7 @@ export function ContactForm() {
 
         <div data-field="livingArea">
           <label htmlFor={id("livingArea")} className={labelClass}>
-            Wohnfläche (m²)
+            Wohn- bzw. Nutzfläche (m²)
           </label>
           <input
             id={id("livingArea")}
@@ -263,7 +287,7 @@ export function ContactForm() {
 
         <div data-field="rooms">
           <label htmlFor={id("rooms")} className={labelClass}>
-            Anzahl Zimmer
+            Anzahl Zimmer oder Einheiten
           </label>
           <input
             id={id("rooms")}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Figure } from "@/components/ui/Figure";
 import { Reveal } from "@/components/ui/Reveal";
@@ -10,6 +11,8 @@ const audience = [
   "Eigentümer, denen die Zeit für Gästekommunikation, Reinigung und Abrechnung fehlt",
   "Eigentümer, die bei den Wiener Regeln zur Kurzzeitvermietung unsicher sind",
   "Internationale Eigentümer, die eine verlässliche Ansprechperson vor Ort benötigen",
+  "Eigentümer ganzer Zinshäuser sowie Investoren vor einem Ankauf",
+  "Eigentümer und Betreiber von Pensionen und kleinen Hotels",
   "Immobilieninvestoren und Eigentümer mehrerer Apartments",
   "Bauträger sowie Relocation- und Corporate-Housing-Kunden",
   "Eigentümer, die Kurzzeitvermietung, Mid-Term und Serviced Apartment vergleichen möchten",
@@ -38,6 +41,11 @@ export function AudienceSection() {
                 </li>
               ))}
             </ul>
+            <p className="mt-8 text-small text-ink-soft">
+              Sie besitzen mehr als eine Wohnung? Für <Link href="/objekte/zinshaus-verwaltung-wien" className="link-underline text-ink hover:text-bronze">ganze Zinshäuser</Link>,{" "}
+              <Link href="/objekte/pension-betrieb-wien" className="link-underline text-ink hover:text-bronze">Pensionen</Link> und{" "}
+              <Link href="/objekte/hotel-management-wien" className="link-underline text-ink hover:text-bronze">Hotels</Link> gelten eigene Prüfpunkte.
+            </p>
           </Reveal>
         </div>
       </Container>

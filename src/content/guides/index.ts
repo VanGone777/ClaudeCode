@@ -11,6 +11,7 @@ import { steuernOesterreich } from "./airbnb-steuern-oesterreich";
 import { gewerbeOesterreich } from "./airbnb-gewerbe-oesterreich";
 import { gaesteverzeichnis } from "./gaesteverzeichnis-meldepflicht";
 import { euVerordnung } from "./eu-verordnung-kurzzeitvermietung";
+import { zinshausNutzung } from "./zinshaus-touristische-nutzung-wien";
 
 /** Editorial order (also used for the magazine listing). */
 export const guides: Guide[] = [
@@ -19,6 +20,7 @@ export const guides: Guide[] = [
   ausnahmebewilligung,
   wohnzonenWien,
   eigentumswohnung,
+  zinshausNutzung,
   ortstaxeWien,
   vietour,
   brandschutz,

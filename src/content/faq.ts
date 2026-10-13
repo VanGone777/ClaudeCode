@@ -126,6 +126,32 @@ export const faqGroups: FaqGroup[] = [
     ],
   },
   {
+    id: "objekte",
+    title: "Zinshäuser, Pensionen und Hotels",
+    items: [
+      {
+        q: "Kann ich ein ganzes Zinshaus touristisch vermieten?",
+        a: "Nicht automatisch. Die Voraussetzungen der Stadt Wien sehen unter anderem vor, dass die Mehrheit der Wohnungen im Gebäude Wohnzwecken gewidmet bleibt und höchstens 50 % der Nutzungseinheiten der gewerblichen kurzfristigen Beherbergung dienen. Ob und in welchem Umfang das bei Ihrem Haus möglich ist, wird im Einzelfall geprüft.",
+      },
+      {
+        q: "Betreut Goldnest auch ganze Zinshäuser?",
+        a: "Ja. Wir erarbeiten ein Nutzungskonzept für das Gebäude, ordnen Einheiten kurzfristiger, mittelfristiger oder dauerhafter Vermietung zu und übernehmen den Betrieb der vermieteten Einheiten. Die rechtliche Prüfung steht am Anfang.",
+      },
+      {
+        q: "Betreut Goldnest Pensionen und Hotels?",
+        a: "Wir unterstützen Eigentümer und Betreiber bei Bereichen wie Gästekommunikation, Pricing, Vertrieb, Housekeeping-Organisation, Meldewesen und Reporting. Welchen Umfang wir übernehmen, hängt vom Betrieb und den rechtlichen Voraussetzungen ab und wird vor Beginn schriftlich festgelegt.",
+      },
+      {
+        q: "Zählt bei der Zahl der Betten das ganze Haus?",
+        a: "Für den Brandschutz kann die Gesamtzahl der touristisch genutzten Betten im Gebäude entscheidend sein. Bis zu zehn Betten erfordern laut Merkblatt der Baupolizei eine Erklärung über unvernetzte Rauchwarnmelder, bei mehr als zehn können weitergehende Anforderungen gelten.",
+      },
+      {
+        q: "Brauche ich für eine Pension oder ein Hotel ein Gewerbe?",
+        a: "Der Betrieb von Pensionen und Hotels wird in der Regel gewerblich geführt. Welche Berechtigung erforderlich ist, sollten Sie im Einzelfall mit der Wirtschaftskammer oder Ihrer Beratung klären.",
+      },
+    ],
+  },
+  {
     id: "praxis",
     title: "Praktische Fragen",
     items: [
@@ -176,7 +202,7 @@ export const homeFaqQuestions = [
   "Brauche ich für Airbnb in Wien ein Gewerbe?",
   "Was kostet eine Airbnb-Verwaltung in Wien?",
   "Was übernimmt Goldnest?",
-  "Kann ich meine Wohnung weiterhin selbst nutzen?",
+  "Kann ich ein ganzes Zinshaus touristisch vermieten?",
   "Ist mittelfristige Vermietung eine Alternative zu Airbnb?",
   "Wie starte ich mit Goldnest?",
 ];

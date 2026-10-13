@@ -11,7 +11,7 @@ export const site = {
   locale: "de_AT",
   language: "de",
   description:
-    "Goldnest übernimmt die professionelle Vermietung und Betreuung hochwertiger Apartments in Wien – von Strategie und Positionierung über Gästebetreuung und Pricing bis zur laufenden Verwaltung.",
+    "Goldnest übernimmt die professionelle Vermietung und Betreuung von Apartments, ganzen Zinshäusern, Pensionen und Hotels in Wien – von der rechtlichen Prüfung über Positionierung, Pricing und Gästebetreuung bis zur laufenden Verwaltung.",
   contact: {
     // VERIFY: official contact details of Goldnest GmbH.
     email: "office@goldnest.at",
@@ -57,7 +57,7 @@ export type NavItem = { label: string; href: string; description?: string };
 
 export const primaryNav: NavItem[] = [
   { label: "Leistungen", href: "/leistungen" },
-  { label: "Für Eigentümer", href: "/airbnb-verwaltung-wien" },
+  { label: "Objekte", href: "/objekte" },
   { label: "Kurzzeitvermietung Wien", href: "/kurzzeitvermietung-wien" },
   { label: "Ratgeber", href: "/ratgeber" },
   { label: "Über Goldnest", href: "/ueber-uns" },
@@ -66,8 +66,10 @@ export const primaryNav: NavItem[] = [
 export const footerNav = {
   leistungen: [
     { label: "Airbnb Verwaltung", href: "/airbnb-verwaltung-wien" },
+    { label: "Zinshäuser", href: "/objekte/zinshaus-verwaltung-wien" },
+    { label: "Pensionen", href: "/objekte/pension-betrieb-wien" },
+    { label: "Hotels", href: "/objekte/hotel-management-wien" },
     { label: "Co-Hosting", href: "/leistungen/co-hosting-wien" },
-    { label: "Apartment Management", href: "/leistungen" },
     { label: "Pricing", href: "/leistungen/pricing" },
     { label: "Reinigung", href: "/leistungen/reinigung-gaestebetreuung" },
     { label: "Mittelfristige Vermietung", href: "/leistungen/mittelfristige-vermietung" },

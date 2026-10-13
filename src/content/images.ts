@@ -163,6 +163,36 @@ export const images = {
     variant: "material",
     tone: "light",
   },
+  zinshaus: {
+    alt: "Wiener Zinshaus mit Gründerzeitfassade und Einfahrt",
+    motif: "Zinshausfassade in voller Höhe, Einfahrt, Fensterachsen, Streiflicht",
+    variant: "facade",
+    tone: "deep",
+  },
+  zinshausHof: {
+    alt: "Innenhof eines Wiener Zinshauses mit Pawlatschen",
+    motif: "Innenhof mit Pawlatschengang, Bäumen und Nachmittagslicht",
+    variant: "stairs",
+    tone: "sand",
+  },
+  pension: {
+    alt: "Frühstücksraum einer kleinen Wiener Pension",
+    motif: "Gedeckte Frühstückstische, Holzboden, Fenster zum Hof – ohne Personen",
+    variant: "window",
+    tone: "sand",
+  },
+  hotel: {
+    alt: "Empfangsbereich eines Stadthotels in Wien",
+    motif: "Rezeptionstresen, Treppenhaus, ruhige Materialien, warmes Licht",
+    variant: "arch",
+    tone: "deep",
+  },
+  hotelZimmer: {
+    alt: "Hotelzimmer mit gemachtem Bett und Fensterblick",
+    motif: "Hotelzimmer, gemachtes Bett, Leinen, Fensterblick auf Wiener Dächer",
+    variant: "door",
+    tone: "light",
+  },
 } as const satisfies Record<string, ImageAsset>;
 
 export type ImageKey = keyof typeof images;

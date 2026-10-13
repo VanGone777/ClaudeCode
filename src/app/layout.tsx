@@ -26,7 +26,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Airbnb Verwaltung Wien | Premium Apartment Management – Goldnest",
+    default: "Airbnb Verwaltung Wien | Apartments, Zinshäuser, Hotels – Goldnest",
     template: "%s – Goldnest",
   },
   description: site.description,

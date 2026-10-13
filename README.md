@@ -1,6 +1,6 @@
 # Goldnest Website
 
-Website der Goldnest GmbH, Wien: professionelle Apartment- und Kurzzeitvermietungsverwaltung.
+Website der Goldnest GmbH, Wien: professionelle Verwaltung von Apartments, ganzen Zinshäusern, Pensionen und Hotels.
 Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4. Keine weiteren UI-Abhängigkeiten.
 
 ## Entwicklung
@@ -40,7 +40,8 @@ Alle offenen Punkte sind im Code mit `VERIFY` markiert (`grep -rn VERIFY src`). 
 5. **Rechtsinhalte**: Jeder Ratgeber zeigt „Fachliche Prüfung ausstehend“. Nach Prüfung durch Rechts- und Steuerberatung das Feld `reviewed` pflegen. Quellenlinks und Stand vor Veröffentlichung erneut prüfen. Offen laut Recherche: Frist der Ortstaxe-Jahreserklärung, Aufbewahrungsfrist des Gästeverzeichnisses, österreichische Umsetzung der EU-Verordnung 2024/1028, Bearbeitungsdauer der Ausnahmebewilligung (bewusst nicht genannt).
 6. **Kontaktformular**: Die Server Action validiert und protokolliert nur. Versand über E-Mail-Dienst in `src/lib/inquiry.ts` anbinden (`INQUIRY_TO`, `INQUIRY_FROM`, `RESEND_API_KEY`, siehe `.env.example`).
 7. **Datenschutzerklärung**: Hosting-Anbieter, Speicherdauer, E-Mail-Dienst ergänzen. Aussage „keine Analyse- oder Marketing-Cookies“ aktualisieren, falls Tracking ergänzt wird.
-8. **Keine Preise, Provisionen oder Garantien** von Goldnest sind hinterlegt. Der Rechner nutzt ausschließlich Eingaben der Besucher und Beispielwerte.
+8. **Zinshäuser, Pensionen, Hotels** (`src/content/objects/index.ts`): Goldnest muss bestätigen, welche Leistungen es für diese Objektarten tatsächlich anbietet (einzelne Bereiche, Betriebsführung, Management-Vertrag) und welche Gewerbeberechtigung dafür vorliegt oder über Partner bereitgestellt wird. Die Seiten nennen keine Referenzen, Preise oder Ergebnisse. Aussagen zu Gewerbe und Brandschutz bei Pensionen und Hotels sind allgemein gehalten und fachlich zu prüfen.
+9. **Keine Preise, Provisionen oder Garantien** von Goldnest sind hinterlegt. Der Rechner nutzt ausschließlich Eingaben der Besucher und Beispielwerte.
 
 ## Faktenbasis
 
