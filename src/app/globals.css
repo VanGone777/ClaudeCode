@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   GOLDNEST Design Tokens
+   Warm, restrained palette. Gold only as a subtle accent.
+   ------------------------------------------------------------------ */
+@theme {
+  --color-ivory: #f7f3ec;
+  --color-ivory-deep: #efe9df;
+  --color-sand: #e5dccc;
+  --color-sand-deep: #d8cdb8;
+  --color-taupe: #b4a690;
+  --color-stone: #7f776a;
+  --color-ink: #23211d;
+  --color-ink-soft: #4f4b44;
+  --color-line: #dcd3c4;
+  --color-line-strong: #c9bfae;
+  --color-bronze: #9a7943;
+  --color-bronze-light: #c6a66c;
+  --color-bronze-pale: #efe3cc;
+  --color-moss: #1f2a24;
+  --color-moss-soft: #2a3831;
+  --color-moss-line: #3a4a41;
+  --color-warm-black: #1b1916;
+  --color-success: #3c6b4f;
+  --color-error: #9b3b2f;
+
+  --font-serif: var(--font-fraunces), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-display-xl: clamp(2.75rem, 1.5rem + 5.2vw, 6rem);
+  --text-display-xl--line-height: 1;
+  --text-display-xl--letter-spacing: -0.015em;
+  --text-display: clamp(2.25rem, 1.25rem + 3.6vw, 4.5rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.012em;
+  --text-headline: clamp(1.875rem, 1.2rem + 2.2vw, 3.125rem);
+  --text-headline--line-height: 1.1;
+  --text-headline--letter-spacing: -0.01em;
+  --text-title: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --text-title--line-height: 1.2;
+  --text-subtitle: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --text-subtitle--line-height: 1.35;
+  --text-lead: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
+  --text-lead--line-height: 1.55;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.7;
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.6;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.5;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.18em;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --shadow-soft: 0 1px 2px rgba(35, 33, 29, 0.04), 0 12px 40px -12px rgba(35, 33, 29, 0.12);
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background-color: var(--color-bronze-pale);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    text-wrap: balance;
+    font-variation-settings: "SOFT" 30, "WONK" 0;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-bronze);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  a, button, summary, input, select, textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input, select, textarea {
+    font: inherit;
+    color: inherit;
+  }
+
+  strong, b {
+    font-weight: 600;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Components / utilities
+   ------------------------------------------------------------------ */
+@utility container-x {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 84rem;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) { padding-inline: 2rem; }
+  @media (width >= 64rem) { padding-inline: 3rem; }
+  @media (width >= 80rem) { padding-inline: 4rem; }
+}
+
+@utility section-y {
+  padding-block: 5rem;
+  @media (width >= 48rem) { padding-block: 7rem; }
+  @media (width >= 64rem) { padding-block: 9rem; }
+}
+
+@utility section-y-sm {
+  padding-block: 3.5rem;
+  @media (width >= 48rem) { padding-block: 5rem; }
+  @media (width >= 64rem) { padding-block: 6rem; }
+}
+
+@utility hairline {
+  border-top: 1px solid var(--color-line);
+}
+
+@utility link-underline {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 200ms ease;
+  &:hover { text-decoration-color: currentColor; }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* Scroll reveal: hidden state only when JS is present (html.js), so
+   content is always visible without JS and for crawlers. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 900ms var(--ease-out-soft),
+    transform 900ms var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Subtle image hover scaling inside figure wrappers */
+.media-zoom img,
+.media-zoom .media-surface {
+  transition: transform 1200ms var(--ease-out-soft);
+}
+.media-zoom:hover img,
+.media-zoom:hover .media-surface {
+  transform: scale(1.03);
+}
+@media (prefers-reduced-motion: reduce) {
+  .media-zoom img,
+  .media-zoom .media-surface {
+    transition: none;
+  }
+  .media-zoom:hover img,
+  .media-zoom:hover .media-surface {
+    transform: none;
+  }
+}
+
+/* Accordion content grid animation */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 420ms var(--ease-out-soft);
+}
+.accordion-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+.accordion-panel > div {
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .accordion-panel {
+    transition: none;
+  }
+}
+
+/* Editorial prose for guide articles */
+.prose-editorial > * + * {
+  margin-top: 1.25em;
+}
+.prose-editorial h2 {
+  font-size: var(--text-title);
+  line-height: var(--text-title--line-height);
+  margin-top: 2.75em;
+  margin-bottom: 0.6em;
+}
+.prose-editorial h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-top: 2em;
+  margin-bottom: 0.4em;
+}
+.prose-editorial ul,
+.prose-editorial ol {
+  padding-left: 1.4em;
+}
+.prose-editorial ul {
+  list-style: none;
+}
+.prose-editorial ul > li {
+  position: relative;
+  padding-left: 0.25em;
+}
+.prose-editorial ul > li::before {
+  content: "";
+  position: absolute;
+  left: -1.15em;
+  top: 0.78em;
+  width: 0.45em;
+  height: 1px;
+  background: var(--color-bronze);
+}
+.prose-editorial ol {
+  list-style: decimal;
+}
+.prose-editorial li + li {
+  margin-top: 0.5em;
+}
+.prose-editorial a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--color-bronze) 55%, transparent);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+.prose-editorial a:hover {
+  text-decoration-color: var(--color-bronze);
+}
+
+/* Hero entrance (CSS only, no JS dependency) */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes scale-settle {
+  from { transform: scale(1.03); }
+  to { transform: none; }
+}
+.anim-fade-up {
+  animation: fade-up 900ms var(--ease-out-soft) both;
+  animation-delay: var(--delay, 0ms);
+}
+.anim-settle {
+  animation: scale-settle 1600ms var(--ease-out-soft) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-settle { animation: none; }
+}
